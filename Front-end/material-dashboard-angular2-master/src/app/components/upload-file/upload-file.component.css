@@ -1,0 +1,14 @@
+.container {
+  width: 640px; /*can be in percentage also.*/
+  height: auto;
+  margin: 100px auto;
+  padding: 10px;
+  position: relative;
+}
+.container > * {
+  margin: 20px;
+  padding: 50px;
+}
+.btn {
+  height: 20px;
+}

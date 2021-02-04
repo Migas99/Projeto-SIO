@@ -1,0 +1,60 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Clientes</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>ID do Cliente</th>
+                  <th>Total Vendido ao Cliente</th>
+                  <th>Preço Médio de Venda ao Cliente</th>
+                  <th>Nome do Cliente</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let client of clients">
+                    <td>{{ client.CustomerID }}</td>
+                    <td>{{ client.TotalOfSales }} €</td>
+                    <td>{{ client.AverageOfSales }} €</td>
+                    <td>{{ client.CompanyName }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title mt-0">Produtos</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="">
+                  <th>Nome do Produto</th>
+                  <th>Total Vendas do Produto</th>
+                  <th>Preço Médio de Venda do Produto</th>
+                  <th>Descrição do Produto</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <td>{{ product.ProductCode }}</td>
+                    <td>{{ product.TotalOfSales }} €</td>
+                    <td>{{ product.AverageOfSales }} €</td>
+                    <td>{{ product.ProductDescription }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <form [formGroup]="form">
+    <input
+      type="file"
+      formControlName="file"
+      accept="text/xml"
+      (change)="onFileSelect($event)"
+    />
+  </form>
+  <button
+    [ngClass]="{ disable: !uploading }"
+    class="btn btn-danger btn-block btn-lg"
+    (click)="onSubmit()"
+  >
+    Import
+  </button>
+</div>

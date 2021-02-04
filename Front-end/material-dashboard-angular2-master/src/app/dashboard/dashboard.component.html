@@ -1,0 +1,158 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Número Total Clientes</p>
+            <h3 *ngIf="clients" class="card-title">
+              {{ clients.length }}
+            </h3>
+            <h3 *ngIf="!clients" class="card-title">0</h3>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-truck" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Número Total Fornecedores</p>
+            <h3 *ngIf="suppliers" class="card-title">{{ suppliers.length }}</h3>
+            <h3 *ngIf="!suppliers" class="card-title">0</h3>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Número Entradas</p>
+            <h3 *ngIf="auditFile" class="card-title">
+              {{ auditFile.TotalEntries }}
+            </h3>
+            <h3 *ngIf="!auditFile" class="card-title">0</h3>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Número de Vendas</p>
+            <h3 *ngIf="auditFile" class="card-title">
+              {{ auditFile.NumberOfSales }}
+            </h3>
+            <h3 *ngIf="!auditFile" class="card-title">0</h3>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-truck" aria-hidden="true"></i>
+            </div>
+            <p class="card-category">Número de Compras</p>
+            <h3 *ngIf="auditFile" class="card-title">
+              {{ numberBought }}
+            </h3>
+            <h3 *ngIf="!auditFile" class="card-title">0</h3>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-money" aria-hidden="true"></i>
+          </div>
+          <p class="card-category">Valor Total de Vendas</p>
+          <h3 *ngIf="auditFile" class="card-title">
+            {{ auditFile.TotalSales }}€
+          </h3>
+          <h3 *ngIf="!auditFile" class="card-title">0€</h3>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-success card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-money" aria-hidden="true"></i>
+          </div>
+          <p class="card-category">Valor Total de Crédito</p>
+          <h3 *ngIf="auditFile" class="card-title">
+            {{ auditFile.TotalCredit }}€
+          </h3>
+          <h3 *ngIf="!auditFile" class="card-title">0€</h3>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-danger card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-money" aria-hidden="true"></i>
+          </div>
+          <p class="card-category">Valor Total de Compras S/Iva</p>
+          <h3 *ngIf="auditFile" class="card-title">
+            {{ auditFile.TotalBoughts }}€
+          </h3>
+          <h3 *ngIf="!auditFile" class="card-title">0€</h3>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="card-header card-header-success">
+        <h4 class="card-title">Vendas por Mês</h4>
+      </div>
+      <div class="card-body table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <th>Mês</th>
+            <th>Valor de Vendas Sem IVA</th>
+            <th>Valor de Vendas</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of salesTotalsByPeriod">
+              <td>{{ sale.Period }}</td>
+              <td>{{ sale.PeriodTotalWithoutTax }}€</td>
+              <td>{{ sale.PeriodTotal }}€</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Fornecedores</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Nome do Fornecedor</th>
+                  <th>ID Conta Fornecedor</th>
+                  <th>Total Comprado ao Fornecedor</th>
+                  <th>Preço Médio de Compra ao Fornecedor</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let supplier of suppliers">
+                    <td>{{ supplier.SupplierName }}</td>
+                    <td>{{ supplier.AccountID }}</td>
+                    <td>{{ supplier.TotalBoughts }} €</td>
+                    <td>{{ supplier.AverageBought }} €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

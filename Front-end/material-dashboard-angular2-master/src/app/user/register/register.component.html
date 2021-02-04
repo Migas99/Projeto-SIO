@@ -1,0 +1,22 @@
+<div>
+  <h2>Sign Up</h2>
+
+  <label>Username:</label>
+  <input [(ngModel)]="userData.UserName" type="text" placeholder="username" />
+  <br />
+
+  <label>Password:</label><br>
+  <input [(ngModel)]="userData.PasswordHash" type="password" placeholder="password" />
+  <br />
+
+  <label>Email:</label><br>
+  <input [(ngModel)]="userData.Email" type="email" placeholder="email" />
+  <br />
+
+  <label>Confirmar Password:</label><br>
+  <input [(ngModel)]="userData.PasswordSalt" type="password" placeholder="comparePassword" />
+  <br />
+
+  <button (click)="register()">Sign Up</button>
+  <a href="/#/login">Sign In</a>
+</div>
